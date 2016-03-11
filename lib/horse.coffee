@@ -14,11 +14,11 @@ class Horse
       .viewport(1980,1200)
       .userAgent CONF.ua
       .open CONF.root
-      .wait(300)
+      .wait(CONF.wait)
       .type '#Username', CONF.user
-      .wait(300)
+      .wait(CONF.wait)
       .type '#Password', CONF.pass
-      .wait(300)
+      .wait(CONF.wait)
       #.screenshot( tools.newPngPath() )
       .click("button:contains('Sign In')")
       .waitForNextPage()
@@ -26,9 +26,9 @@ class Horse
       .waitForNextPage()
       .cookies()
       .then @scraper.setCookies
-      .wait(200)
-      #.screenshot tools.newPngPath()
-      .wait(200)
+      .wait(CONF.wait)
+      .screenshot tools.newPngPath()
+      #.wait(CONF.wait)
       .html()
       .then @scraper.getModules
       .then @scraper.retrieveUrl
