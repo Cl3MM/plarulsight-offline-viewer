@@ -40,6 +40,7 @@ module.exports =
   urls            : urls
   root            : app + 'id'
   app             : app
+  wait            : secret.wait
   retrieveUrl     : 'player/retrieve-url'
   screenshots_path: path.join(root_path, 'screenshots/')
   lib_path        : path.join(root_path, 'lib/')
