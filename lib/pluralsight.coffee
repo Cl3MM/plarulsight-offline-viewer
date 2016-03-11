@@ -109,6 +109,7 @@ class Pluralsight
     console.log '[+] ' + $('.module').length + ' modules found'
     index = 0
     re = new RegExp /.*\$(.*)/
+    authorRe = new RegExp /.*=2(.*)(.\d+)$/
     $('.module').each (module)->
       clip = 0
       clips = []
@@ -118,10 +119,12 @@ class Pluralsight
         console.log '[!] unable to find the module name'
         return
       $(this).find('li h3').each ->
+        # getting author from react variable
+        author = authorRe.exec($(this).data('reactid'))[1]
         clips.push {
           index: clip
           title: $(this).text()
-          author: query.author
+          author: if author isnt query.author then author else query.author
           course: query.course
         }
         clip += 1
