@@ -1,6 +1,6 @@
-assets/video/*
+assets/video/
 lib/secret.json
-screenshots/*
+screenshots
 
 # Logs
 logs
