@@ -11,6 +11,9 @@ argv   = require('yargs')
   .alias('f', 'file')
   .nargs('f', 1)
   .describe('f', 'File containing a list of urls')
+  .count('verbose')
+  .alias('v', 'verbose')
+  .describe('v', 'verbose mode')
   .argv
 
 if !argv.f and !argv.u
@@ -30,7 +33,7 @@ else
 
 module.exports =
   argv            : argv
-  debug           : 0
+  debug           : argv.verbose
   user            : secret.user
   pass            : secret.pass
   ua              : "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.33 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.33"
