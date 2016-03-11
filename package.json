@@ -21,6 +21,7 @@
     "fs-extra": "^0.26.5",
     "horseman": "^0.2.1",
     "lodash": "^4.6.1",
+    "node-horseman": "^2.8.2",
     "nodemon": "^1.9.1",
     "progress": "^1.1.8",
     "queue": "^3.1.0",
