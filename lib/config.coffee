@@ -20,6 +20,10 @@ if !argv.f and !argv.u
   console.log "Missing required argument u or f"
   process.exit 0
 
+if !secret.user and !secret.user
+  console.log "Cannot found user or password in ./lib/secret.json"
+  process.exit 0
+
 app       = "https://app.pluralsight.com/"
 root_path = path.normalize path.join(__dirname, '../')
 
@@ -40,7 +44,7 @@ module.exports =
   urls            : urls
   root            : app + 'id'
   app             : app
-  wait            : secret.wait
+  wait            : secret?.wait ? 300
   retrieveUrl     : 'player/retrieve-url'
   screenshots_path: path.join(root_path, 'screenshots/')
   lib_path        : path.join(root_path, 'lib/')
